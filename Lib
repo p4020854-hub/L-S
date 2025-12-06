@@ -115,6 +115,8 @@ Window.Selectable = true
 Window.Size = UDim2.new(0, 200, 0, 200)
 Window.Image = "rbxassetid://2851926732"
 Window.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
+Window.ImageTransparency = 0.4
+Window.BackgroundTransparency = 0.4
 Window.ScaleType = Enum.ScaleType.Slice
 Window.SliceCenter = Rect.new(12, 12, 12, 12)
 
@@ -952,6 +954,10 @@ function library:AddWindow(title, options)
 	local Window = Prefabs:FindFirstChild("Window"):Clone()
 	Window.Parent = Windows
 	Window:FindFirstChild("Title").Text = title
+   local corner = Instance.new("UICorner")
+  corner.CornerRadius = UDim.new(0, 12)  -- Puedes cambiar 12 por el valor que quieras
+  corner.Parent = Window
+
 	Window.Size = UDim2.new(0, options.min_size.X, 0, options.min_size.Y)
 	Window.ZIndex = Window.ZIndex + (windows * 10)
 
